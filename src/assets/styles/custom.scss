@@ -1,0 +1,31 @@
+$error-color: #f87171;
+$text-color: #94a3b8;
+$text-input-color: #727a79;
+$border-color: #cbd5e10c;;
+$backdrop-color: #cbd5e10c;
+$backdrop-label-color: #cbd5e10c;;
+$min-border: 1px solid #cbd5e1;
+$main-border-focus: 1px solid #cbd5e1;
+$min-radius: 4px;
+
+@mixin flex-row($jc, $ai) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin flex-col($jc, $ai) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin font {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+
+@mixin focus {
+    box-shadow: 0px 0px 10px -6px rgb(32, 184, 120);
+}
