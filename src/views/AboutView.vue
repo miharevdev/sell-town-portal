@@ -4,6 +4,7 @@
     <base-select title="Выбрать" :select-data="options" />
     <base-select title="Выбрать" :select-data="options" />
     <base-input title="Найти" hasLeftTitile />
+    <base-input title="Найти" hasLeftTitile />
     
   </div>
 </template>
