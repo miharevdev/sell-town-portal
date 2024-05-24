@@ -1,17 +1,13 @@
 <template>
     <div class="select" @mouseleave="closeOptions">
         <div class="select-title">
-            <span v-if="!hasLeftTitile" class="select-title-text">{{ title }}</span>
-            <span v-if="!hasLeftTitile && title!== '' && required" class="select-title-required">*</span>
+            <span class="select-title-text">{{ title }}</span>
+            <span v-if="required" class="select-title-required">*</span>
         </div>
         <div class="select-wrapper" @click="toggleOption">
-            <div class="" :class="[hasLeftTitile ? 'left-title' : 'select-title']">
-                <span v-if="hasLeftTitile" class="select-title-text">{{ title }}</span>
-                <span v-if="hasLeftTitile && title!== '' && required" class="select-title-required">*</span>
-            </div>
-            <div 
-                class="select-wrapper-field" 
-                :class="[hasLeftTitile ? 'skiped-left' : '']" 
+
+            <div
+                :class="[showOptions ? 'skiped-bottom ' : 'select-wrapper-field']" 
                 :type="type" 
                 :placeholder="placeholder"
             >
@@ -38,7 +34,6 @@
             type: { type: String, default: "text" },
             placeholder: { type: String, default: "" },
             title: { type: String, default: "" },
-            hasLeftTitile: { type: Boolean, default: false },
             errorMessage: { type: String, default: "" },
             required: { type: Boolean, default: false },
         },
@@ -70,23 +65,31 @@
 <style lang="scss" scoped>
 @import "~/src/assets/styles/custom.scss";
 
-.left-title {
-    @include flex-row(center, center);
-    height: 36px;
-    white-space: nowrap;
-    padding-left: 10px;
-    padding-right:10px;
-    border: $min-border;
-    border-radius: $min-radius;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-right: none;
-    background-color: $backdrop-label-color;
-}
-
 .skiped-left {
     border-top-left-radius: 0px !important;
     border-bottom-left-radius: 0px !important
+}
+
+.skiped-bottom {
+    @include flex-row(flex-start, center);
+    height: 36px;
+    width: 100%;
+    min-width: 140px;
+    margin: 2px 0px;
+    padding: 0px 8px;
+    border: $min-border;
+    border-radius: $min-radius;
+    outline: none;
+    font-size: 14px;
+    color: $text-input-color;
+    background-color: $backdrop-color;
+
+    &:focus {
+        border: $main-border-focus;
+    }
+   
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .select {
@@ -94,6 +97,7 @@
     @include font;
     margin: 5px;
     padding: 10px;
+    position: relative;
 
     @media screen and (min-width: 420px) {
         width: 260px;
@@ -125,17 +129,11 @@
         @include flex-row(flex-start, center);
         width: 100%;
 
-        &-left-title {
-            font-size: 12px;
-            color: $text-color;
-            border: $min-border;
-            border-radius: $min-radius;
-        }
-
         &-field {
             @include flex-row(flex-start, center);
             height: 36px;
             width: 100%;
+            min-width: 140px;
             margin: 2px 0px;
             padding: 0px 8px;
             border: $min-border;
@@ -148,10 +146,7 @@
             &:focus {
                 border: $main-border-focus;
             }
-
         }
-
-        
     }
 
     &-error {
@@ -166,15 +161,18 @@
 
     &-option-section {
         @include flex-col(flex-start, center);
-        width: calc(100% - 2px);
-        margin: 0px 0px;
-        // padding: 0px 8px;
+        position: absolute;
+        top: 68px;
+        width: calc(100% - 22px);
         border: $min-border;
         border-radius: $min-radius;
         outline: none;
         font-size: 14px;
         color: $text-input-color;
-        background-color: $backdrop-color;
+        background-color: $main-white;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+        z-index: 1;
 
         &-item {
             @include flex-row(flex-start, center);

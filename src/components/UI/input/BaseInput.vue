@@ -101,6 +101,7 @@
             @include flex-row(flex-start, center);
             height: 36px;
             width: 100%;
+            min-width: 140px;
             margin: 2px 0px;
             padding: 0px 8px;
             border: $min-border;
