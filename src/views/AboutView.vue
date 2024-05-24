@@ -1,8 +1,9 @@
 <template>
   <div class="about">
-    <base-select title="Tilte" :options="options" />
-    <base-button title="Tilte" class="btn" />
-    <base-input title="Tilte" />
+    <base-select title="Открыть" :options="options" />
+    <base-button title="Открыть" class="btn" />
+    <base-input title="Открыть" />
+    <base-input title="Открыть" hasLeftTitile />
     <base-button class="btn" />
     <base-button class="btn" />
   </div>

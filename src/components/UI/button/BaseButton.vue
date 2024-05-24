@@ -30,6 +30,7 @@
     border-radius: $min-radius;
     color: $text-input-color;
     background-color: $backdrop-color;
+    cursor: pointer;
 
     &:active {
         border: $main-border-focus;

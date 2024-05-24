@@ -72,9 +72,9 @@ $min-radius: 4px;
 .select {
     @include flex-col(flex-start, flex-start);
     @include font;
-
     padding: 10px;
     position: relative;
+    cursor: pointer;
 
     @media screen and (min-width: 420px) {
         width: 260px;
