@@ -13,7 +13,7 @@
             </div>
         </div>
         <div v-if="showOptions" class="select-option-section">
-            <div v-for="(option, i) in selectData" :key="i" class="select-option-section-item" @click="selected(option)">
+            <div v-for="(option, i) in options" :key="i" class="select-option-section-item" @click="selected(option)">
                 <span class="select-option-section-item-text">{{ option.name }}</span>
             </div>
         </div>
@@ -28,7 +28,7 @@
 <script>
     export default {
         props: {
-            selectData: { type: Array, default: () => { return [] } },
+            options: { type: Array, default: () => { return [] } },
             type: { type: String, default: "text" },
             placeholder: { type: String, default: "" },
             title: { type: String, default: "" },
