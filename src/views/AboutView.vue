@@ -1,9 +1,6 @@
 <template>
   <div class="about">
     <base-select title="Выбрать" :options="options" />
-    <base-select title="Выбрать" :options="options" />
-    <base-select title="Выбрать" :options="options" />
-    <base-input title="Найти" hasLeftTitile />
     <base-input title="Найти" hasLeftTitile />
     
   </div>

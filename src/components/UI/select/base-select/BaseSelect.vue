@@ -5,12 +5,21 @@
             <span v-if="required" class="select-title-required">*</span>
         </div>
         <div class="select-wrapper" @click="toggleOption">
-            <div :class="[showOptions ? 'skiped-bottom ' : 'select-wrapper-field']" 
+            <div :class="[showOptions ? 'skiped-bottom' : 'select-wrapper-field']" 
                 :type="type" 
                 :placeholder="placeholder"
             >
             {{ value.name ? value.name : placeholder }}
             </div>
+            <svg-icon
+                v-if="value.name"
+                class="exit" 
+                name="close" 
+                size="large" 
+                color="#64748b" 
+                hoverColor="#64748b"
+                @click="clearField"
+            />
         </div>
         <div v-if="showOptions" class="select-option-section">
             <div v-for="(option, i) in options" :key="i" class="select-option-section-item" @click="selected(option)">
@@ -26,7 +35,13 @@
 </template>
 
 <script>
+import SvgIcon from "../../icon/SvgIcon.vue";
+
     export default {
+        components: {
+            SvgIcon
+        },
+
         props: {
             options: { type: Array, default: () => { return [] } },
             type: { type: String, default: "text" },
@@ -55,6 +70,10 @@
 
             closeOptions() {
                 this.showOptions = false;
+            },
+
+            clearField() {
+                this.value = {};
             }
         }
     }

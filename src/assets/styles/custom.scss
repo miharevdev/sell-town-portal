@@ -32,6 +32,16 @@ $min-radius: 4px;
 }
 
 // ================================================== SELECT
+
+.exit {
+    @include flex-row(center, center);
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    right: 10px;
+    margin-top: 4px;
+}
+
 .skiped-left {
     border-top-left-radius: 0px !important;
     border-bottom-left-radius: 0px !important
