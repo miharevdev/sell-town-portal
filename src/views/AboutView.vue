@@ -1,19 +1,24 @@
 <template>
   <div class="about">
-    <base-select title="Выбрать" :options="options" />
-    <base-input title="Найти" hasLeftTitile />
-    
+    <base-select title="Tilte" :options="options" />
+    <base-button title="Tilte" class="btn" />
+    <base-input title="Tilte" />
+    <base-button class="btn" />
+    <base-button class="btn" />
   </div>
 </template>
 
 <script>
-import BaseInput from "@/components/UI/input/BaseInput.vue";
 import BaseSelect from "@/components/UI/select/base-select/BaseSelect.vue";
+import BaseButton from "@/components/UI/button/BaseButton.vue"
+import BaseInput from "@/components/UI/input/BaseInput.vue";
+
 
   export default {
     components: {
-      BaseInput,
-      BaseSelect
+      BaseButton,
+      BaseSelect,
+      BaseInput
     },
 
     data() {
@@ -40,6 +45,11 @@ import BaseSelect from "@/components/UI/select/base-select/BaseSelect.vue";
 
 
 .about {
-  @include flex-row(center, flex-start);
+  @include flex-row(flex-start, center);
+  flex-wrap: wrap;
+}
+
+.btn {
+  margin-top: 4px;
 }
 </style>
