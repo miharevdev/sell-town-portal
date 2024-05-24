@@ -181,8 +181,8 @@
 
             &:first-child:hover {
                 border-radius: $min-radius;
-                border-top-left-radius: $min-radius;
-                border-top-right-radius: $min-radius;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
                 border-bottom-left-radius: 0px;
                 border-bottom-right-radius: 0px;
             }
