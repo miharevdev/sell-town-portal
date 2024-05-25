@@ -1,10 +1,10 @@
 <template>
     <div class="table-wrapper">
         <div class="table">
-                <div v-if="control" class="table-control">
+            <div v-if="control" class="table-control">
 
-                </div>
-                <base-scrollbar>
+            </div>
+            <base-scrollbar>
                 <div class="table-header">
                     <div v-for="(field, i) in fields" :key="i" class="table-header-item" :style="`min-width: ${field.width}px`">
                         <span class="table-header-item-text">{{ field.cap }}</span>
@@ -15,6 +15,7 @@
                         <span v-for="(td, i) in tData" :key="i" class="table-body-line-item" :style="`min-width: ${td.width}px`">
                             {{ td.value}}
                         </span>
+                        <slot v-for="(slot, i) in slots" :key="i" class="slot" :name="slot" />
                     </div>
                 </div>
             </base-scrollbar>
@@ -27,20 +28,31 @@ import BaseScrollbar from "../scroll/BaseScrollbar.vue"
 
     export default {
         components: {
-            BaseScrollbar
+            BaseScrollbar,
         },
 
         props: {
-            control: { type: Boolean, default: true },
+            control: { type: Boolean, default: false },
             fields: { type: Array, default: () => { return [] } },
             tableData: { type: Array, default: () => { return [] } },
+            slots: { type: Array, default: () => { return [] } },
         },
 
         data() {
-            return {}
+            return {
+                options: [
+                    { id: 1, name: "data 1" },
+                    { id: 2, name: "data 2" },
+                    { id: 3, name: "data 3" },
+                    { id: 4, name: "data 4" },
+                    { id: 5, name: "data 5" },
+                    { id: 6, name: "data 6" },
+                ]
+            }
         },
 
         mounted() {
+
             this.tableData.forEach(td => {
                 for (let key in td) {
                     this.fields.forEach(f => {
@@ -57,6 +69,13 @@ import BaseScrollbar from "../scroll/BaseScrollbar.vue"
 <style lang="scss" scoped>
 @import "~/src/assets/styles/custom.scss";
 
+.slot {
+    @include flex-col(flex-start, center);
+    height: 100%;
+    width: 200px;
+    background-color: #fff;
+}
+
 .table-wrapper {
     @include flex-col(flex-start, center);
     height: 100%;
@@ -72,9 +91,10 @@ import BaseScrollbar from "../scroll/BaseScrollbar.vue"
     border-radius: $min-radius;
 
     &-control {
-        @include flex-col(flex-start, center);
+        @include flex-row(flex-start, center);
         min-height: 50px;
         width: 100%;
+        padding-top: 8px;
         border-bottom: $min-border;
     }
 
@@ -107,10 +127,11 @@ import BaseScrollbar from "../scroll/BaseScrollbar.vue"
         &-line {
             @include flex-row(flex-start, center);
             min-height: 50px;
-            width: 100%;
+            min-width: 100%;
 
             &:hover {
                 background-color: #f3f4f6;
+                min-width: 100%;
             }
 
             &-item {

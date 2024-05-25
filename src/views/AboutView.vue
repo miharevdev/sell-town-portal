@@ -1,17 +1,30 @@
 <template>
   <div class="about">
     <div class="cont">
-      <base-table :fields="fields" :table-data="tableData" />
+      <base-table 
+        :fields="fields" 
+        :table-data="tableData" 
+        :slots="['button', 'delete']"
+      >
+        <template #button>
+          <base-button title="Active" />
+        </template>
+        <template #delete>
+          <base-button title="Delete" />
+        </template>
+      </base-table>
     </div>
   </div>
 </template>
 
 <script>
 import BaseTable from "@/components/table/BaseTable.vue"
+import BaseButton from "@/components/UI/button/BaseButton.vue";
 
   export default {
     components: {
-      BaseTable
+      BaseTable,
+      BaseButton
     },
 
     data() {
@@ -20,7 +33,8 @@ import BaseTable from "@/components/table/BaseTable.vue"
                 { key: "id", cap: "ID", show: true, width: 120, dictionary:"" },
                 { key: "name", cap: "Name", show: true, width: 220, dictionary:"" },
                 { key: "count", cap: "Count", show: true, width: 180, dictionary:"" },
-                { key: "date", cap: "Date", show: true, width: 300, dictionary:"" },   
+                { key: "date", cap: "Date", show: true, width: 100, dictionary:"" },
+                {width: 150},
               ],
 
               tableData: [
