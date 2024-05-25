@@ -1,7 +1,8 @@
 <template>
   <div class="about">
     <div class="cont">
-      <base-table 
+      <base-table
+        control
         :fields="fields" 
         :table-data="tableData" 
         :slots="['button', 'delete']"
@@ -77,7 +78,7 @@ import BaseButton from "@/components/UI/button/BaseButton.vue";
 }
 
 .about {
-  @include flex-row(flex-start, center);
+  @include flex-col(flex-start, center);
   height: 100%;
   width: 100%;
 }

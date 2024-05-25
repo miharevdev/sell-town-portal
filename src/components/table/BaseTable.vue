@@ -127,11 +127,10 @@ import BaseScrollbar from "../scroll/BaseScrollbar.vue"
         &-line {
             @include flex-row(flex-start, center);
             min-height: 50px;
-            min-width: 100%;
+            width: 100%;
 
             &:hover {
                 background-color: #f3f4f6;
-                min-width: 100%;
             }
 
             &-item {
