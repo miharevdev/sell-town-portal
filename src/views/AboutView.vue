@@ -1,53 +1,71 @@
 <template>
   <div class="about">
-    <base-select title="Открыть" :options="options" />
-    <base-button title="Открыть" class="btn" />
-    <base-input title="Открыть" />
-    <base-input title="Открыть" hasLeftTitile />
-    <base-button class="btn" />
-    <base-button class="btn" />
+    <div class="cont">
+      <base-table :fields="fields" :table-data="tableData" />
+    </div>
   </div>
 </template>
 
 <script>
-import BaseSelect from "@/components/UI/select/base-select/BaseSelect.vue";
-import BaseButton from "@/components/UI/button/BaseButton.vue"
-import BaseInput from "@/components/UI/input/BaseInput.vue";
-
+import BaseTable from "@/components/table/BaseTable.vue"
 
   export default {
     components: {
-      BaseButton,
-      BaseSelect,
-      BaseInput
+      BaseTable
     },
 
     data() {
-      return {
-        options: [
-          { id: 1, name:"option 1" },
-          { id: 2, name:"option 2" },
-          { id: 3, name:"option 3" },
-          { id: 4, name:"option 4" },
-          { id: 5, name:"option 5" },
-          { id: 6, name:"option 6" },
-          { id: 7, name:"option 7" },
-          { id: 8, name:"option 8" },
-          { id: 9, name:"option 9" },
-          { id: 10, name:"option 10" }
-        ]
-      }
-    }
+            return {
+              fields: [
+                { key: "id", cap: "ID", show: true, width: 120, dictionary:"" },
+                { key: "name", cap: "Name", show: true, width: 220, dictionary:"" },
+                { key: "count", cap: "Count", show: true, width: 180, dictionary:"" },
+                { key: "date", cap: "Date", show: true, width: 300, dictionary:"" },   
+              ],
+
+              tableData: [
+                { id: 1, name: "Vasya", count: 10, date: "10-02-23" },
+                { id: 2, name: "Petya", count: 30, date: "14-02-23" },
+                { id: 3, name: "Sasha", count: 20, date: "22-02-23" },
+                { id: 4, name: "Vasya", count: 10, date: "10-02-23" },
+                { id: 5, name: "Petya", count: 30, date: "14-02-23" },
+                { id: 6, name: "Sasha", count: 20, date: "22-02-23" },
+                { id: 7, name: "Vasya", count: 10, date: "10-02-23" },
+                { id: 8, name: "Petya", count: 30, date: "14-02-23" },
+                { id: 9, name: "Sasha", count: 20, date: "22-02-23" },
+                { id: 10, name: "Vasya", count: 10, date: "10-02-23" },
+                { id: 11, name: "Petya", count: 30, date: "14-02-23" },
+                { id: 12, name: "Sasha", count: 20, date: "22-02-23" },
+                { id: 13, name: "Vasya", count: 10, date: "10-02-23" },
+                { id: 14, name: "Petya", count: 30, date: "14-02-23" },
+                { id: 15, name: "Sasha", count: 20, date: "22-02-23" },
+                { id: 16, name: "Vasya", count: 10, date: "10-02-23" },
+                { id: 17, name: "Petya", count: 30, date: "14-02-23" },
+                { id: 18, name: "Sasha", count: 20, date: "22-02-23" },
+                { id: 19, name: "Vasya", count: 10, date: "10-02-23" },
+                { id: 20, name: "Petya", count: 30, date: "14-02-23" },
+                { id: 21, name: "Sasha", count: 20, date: "22-02-23" },
+                { id: 22, name: "Vasya", count: 10, date: "10-02-23" },
+                { id: 23, name: "Petya", count: 30, date: "14-02-23" },
+                { id: 24, name: "Sasha", count: 20, date: "22-02-23" },
+              ]
+            }
+        },
   }
 </script>
 
 <style lang="scss" scoped>
 @import "~/src/assets/styles/custom.scss";
 
+.cont {
+  height: 60%;
+  width: 100%;
+}
 
 .about {
   @include flex-row(flex-start, center);
-  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
 }
 
 .btn {

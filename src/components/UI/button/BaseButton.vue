@@ -25,6 +25,7 @@
     height: 38px;
     white-space: nowrap;
     padding: 0px 10px;
+    padding-top: 2px;
     margin: 0px 10px;
     border: $min-border;
     border-radius: $min-radius;
