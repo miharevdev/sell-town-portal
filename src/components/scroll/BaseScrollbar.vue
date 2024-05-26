@@ -23,7 +23,6 @@
 ::-webkit-scrollbar {
     height: 6px;
     width: 6px;
-    // border: $min-border;
     border-radius: $min-radius;
     padding-inline: 4px;
     background-color: #f3f4f6;
@@ -42,7 +41,4 @@
     }
 }
 
-::-webkit-scrollbar-track {
-
-}
 </style>

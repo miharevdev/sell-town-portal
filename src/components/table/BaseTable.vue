@@ -40,19 +40,11 @@ import BaseScrollbar from "../scroll/BaseScrollbar.vue"
 
         data() {
             return {
-                options: [
-                    { id: 1, name: "data 1" },
-                    { id: 2, name: "data 2" },
-                    { id: 3, name: "data 3" },
-                    { id: 4, name: "data 4" },
-                    { id: 5, name: "data 5" },
-                    { id: 6, name: "data 6" },
-                ]
+
             }
         },
 
         mounted() {
-
             this.tableData.forEach(td => {
                 for (let key in td) {
                     this.fields.forEach(f => {
@@ -128,10 +120,6 @@ import BaseScrollbar from "../scroll/BaseScrollbar.vue"
             @include flex-row(flex-start, center);
             min-height: 50px;
             width: 100%;
-
-            &:hover {
-                background-color: #f3f4f6;
-            }
 
             &-item {
                 @include flex-row(flex-start, center);
